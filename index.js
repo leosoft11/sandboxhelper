@@ -37,8 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
     cloverGetKey.addEventListener('click', () => {
         if (sandbox_name.value) {
             try {
-                let comand = childProcess.execSync(`bash bash/cloverKey.sh ${sandbox_name.value}`).toString();
-                alert(`Результат выполнения скрипта: ${comand}`);
+                let clover_getKey = childProcess.execSync(`bash bash/cloverKey.sh ${sandbox_name.value}`).toString();
+                alert(`Результат выполнения скрипта: ${clover_getKey}`);
                 cloverSettingsBtn.disabled = false;
                 cloverSettingsBtn.classList.remove('btn_disabled');
             } catch(e){
@@ -53,8 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
     cloverSettingsBtn.addEventListener('click', () => {
        if (sandbox_name.value && cloverKey.value && cloverSetApp.value) {
            try {
-            let comand = childProcess.execSync(`bash bash/clover.sh ${sandbox_name.value} ${cloverKey.value} ${cloverSetApp.value}`).toString();
-                alert(`Результат выполнения скрипта: ${comand}`);
+            let comand1_clover = childProcess.execSync(`bash bash/clover.sh ${sandbox_name.value} ${cloverKey.value} ${cloverSetApp.value}`).toString();
+                alert(`Результат выполнения скрипта: ${comand1_clover}`);
            } catch(e) {
                 alert(`Видимо что-то пошло не так ${e}`);
            }
@@ -73,8 +73,8 @@ document.addEventListener('DOMContentLoaded', () => {
     btn_vend.addEventListener('click', () => {
         if (sandbox_name_vend.value && vendClientId.value && vend_clientSecret.value) {
             try{
-                let comand = childProcess.execSync(`bash bash/vend.sh ${sandbox_name_vend.value} ${vendClientId.value} ${vend_clientSecret}`).toString();
-                alert(`Результат выполнения скрипта: ${comand}`);
+                let comand_vend = childProcess.execSync(`bash bash/vend.sh ${sandbox_name_vend.value} ${vendClientId.value} ${vend_clientSecret.value}`).toString();
+                alert(`Результат выполнения скрипта: ${comand_vend}`);
             } catch(e) {
                 alert(`Видимо что-то пошло не так ${e}`);
             }
@@ -94,8 +94,8 @@ document.addEventListener('DOMContentLoaded', () => {
     btn_weebly.addEventListener('click', () => {
         if(sandbox_name_weebly.value && weeblyClientId.value && weeblyClientSecret.value && weeblyAppId.value) {
             try{
-                let comand = childProcess.execSync(`bash bash/weebly.sh ${sandbox_name_weebly.value} ${weeblyClientId.value} ${weeblyClientSecret.value} ${weeblyAppId.value}`).toString();
-                alert(`Результат выполнения скрипта: ${comand}`);
+                let comand_weebly = childProcess.execSync(`bash bash/weebly.sh ${sandbox_name_weebly.value} ${weeblyClientId.value} ${weeblyClientSecret.value} ${weeblyAppId.value}`).toString();
+                alert(`Результат выполнения скрипта: ${comand_weebly}`);
             } catch(e) {
                 alert(`Видимо что-то пошло не так ${e}`);
             }
@@ -112,8 +112,8 @@ document.addEventListener('DOMContentLoaded', () => {
     btn_imex.addEventListener('click', () => {
         if (sandbox_name_imex.value) {
             try{
-                let comand = childProcess.execSync(`bash bash/imex.sh ${sandbox_name_imex.value}`).toString();
-                alert(`Результат выполнения скрипта: ${comand}`);
+                let comand_imex = childProcess.execSync(`bash bash/imex.sh ${sandbox_name_imex.value}`).toString();
+                alert(`Результат выполнения скрипта: ${comand_imex}`);
             } catch(e) {
                 alert(`Видимо что-то пошло не так ${e}`);
             }
@@ -136,8 +136,8 @@ document.addEventListener('DOMContentLoaded', () => {
     btn_square.addEventListener('click', () => {
         if (sandbox_name_square.value && square_appId.value && square_secret.value && square_sandboxAppID.value && square_sandboxAccessToken.value && square_webhookKey.value && square_webhookV2key.value) {
             try{
-                let comand = childProcess.execSync(`bash bash/square.sh ${sandbox_name_square.value} ${square_appId.value} ${square_secret.value} ${square_sandboxAppID.value} ${square_sandboxAccessToken.value} ${square_webhookKey.value} ${square_webhookV2key.value}`).toString();
-                alert(`Результат выполнения скрипта: ${comand}`);
+                let comand_square = childProcess.execSync(`bash bash/square.sh ${sandbox_name_square.value} ${square_appId.value} ${square_secret.value} ${square_sandboxAppID.value} ${square_sandboxAccessToken.value} ${square_webhookKey.value} ${square_webhookV2key.value}`).toString();
+                alert(`Результат выполнения скрипта: ${comand_square}`);
             } catch(e) {
                 alert(`Видимо что-то пошло не так ${e}`);
             }

@@ -10,6 +10,8 @@ POD2=$(kubectl get pod -n "sandbox-$SANDBOX" -l "app=node,hive=eu-fra2" -o jsonp
 POD3=$(kubectl get pod -n "sandbox-$SANDBOX" -l "app=node,hive=eu-fra3" -o jsonpath='{.items[].metadata.name}')
 
 CLOVER=$(kubectl get pod -n "sandbox-$SANDBOX" -l "app=clover,hive=eu-fra1" -o jsonpath='{.items[].metadata.name}')
+PROXY=$(kubectl get pod -n "sandbox-$SANDBOX" -l "app=proxy,hive=eu-fra1" -o jsonpath='{.items[].metadata.name}')
+
 
 
 echo "update clover_app set webhook_auth_code='${KEY}' where market='${CloverAPP}';" | psql-sand "${SANDBOX}" clover
@@ -23,4 +25,5 @@ kubectl -n "sandbox-$SANDBOX" exec -it $POD3 -c "node" -- bash -c 'echo "clover.
 
 kubectl -n "sandbox-$SANDBOX" exec -it $POD2 -c "node" kill 1
 kubectl -n "sandbox-$SANDBOX" exec -it $POD3 -c "node" kill 1
+kubectl -n "sandbox-$SANDBOX" exec -it $PROXY -c "proxy" kill 1
 kubectl -n "sandbox-$SANDBOX" exec -it $CLOVER -c "clover" kill 1
