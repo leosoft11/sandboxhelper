@@ -2,7 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const linksTab = document.querySelectorAll('.link_text'),
            blockTab = document.querySelectorAll('.block'),
            childProcess = require('child_process'),
-           sandbox_name = document.querySelector('.sandbox_name');
+           sandbox_name = document.querySelector('.sandbox_name'),
+           sandbox_name_imex = document.querySelector('.sandbox_name--imex'),
+           sandbox_name_weebly = document.querySelector('.sandbox_name--weebly'),
+           sandbox_name_vend = document.querySelector('.sandbox_name--vend'),
+           sandbox_name_square = document.querySelector('.sandbox_name--square');
 
     linksTab.forEach(item => {
         item.addEventListener('click', (e) => {
@@ -58,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
            alert("Необходимо заполнить все поля");
        }
     });
+    
 
     // Vend //
 
@@ -66,9 +71,9 @@ document.addEventListener('DOMContentLoaded', () => {
           vend_clientSecret = document.querySelector('.vend_clientSecret');
 
     btn_vend.addEventListener('click', () => {
-        if (sandbox_name.value && vendClientId.value && vend_clientSecret.value) {
+        if (sandbox_name_vend.value && vendClientId.value && vend_clientSecret.value) {
             try{
-                let comand = childProcess.execSync(`bash bash/vend.sh ${sandbox_name.value} ${vendClientId.value} ${vend_clientSecret}`).toString();
+                let comand = childProcess.execSync(`bash bash/vend.sh ${sandbox_name_vend.value} ${vendClientId.value} ${vend_clientSecret}`).toString();
                 alert(`Результат выполнения скрипта: ${comand}`);
             } catch(e) {
                 alert(`Видимо что-то пошло не так ${e}`);
@@ -78,6 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+
     // Weebly //
 
     const btn_weebly = document.querySelector('.btn_weebly'),
@@ -86,9 +92,9 @@ document.addEventListener('DOMContentLoaded', () => {
           weeblyAppId = document.querySelector('.weeblyAppID');
 
     btn_weebly.addEventListener('click', () => {
-        if(sandbox_name.value && weeblyClientId.value && weeblyClientSecret.value && weeblyAppId.value) {
+        if(sandbox_name_weebly.value && weeblyClientId.value && weeblyClientSecret.value && weeblyAppId.value) {
             try{
-                let comand = childProcess.execSync(`bash bash/weebly.sh ${sandbox_name.value} ${weeblyClientId.value} ${weeblyClientSecret.value} ${weeblyAppId.value}`).toString();
+                let comand = childProcess.execSync(`bash bash/weebly.sh ${sandbox_name_weebly.value} ${weeblyClientId.value} ${weeblyClientSecret.value} ${weeblyAppId.value}`).toString();
                 alert(`Результат выполнения скрипта: ${comand}`);
             } catch(e) {
                 alert(`Видимо что-то пошло не так ${e}`);
@@ -104,9 +110,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const btn_imex = document.querySelector('.btn_imex');
 
     btn_imex.addEventListener('click', () => {
-        if (sandbox_name.value) {
+        if (sandbox_name_imex.value) {
             try{
-                let comand = childProcess.execSync(`bash bash/imex.sh ${sandbox_name.value}`).toString();
+                let comand = childProcess.execSync(`bash bash/imex.sh ${sandbox_name_imex.value}`).toString();
                 alert(`Результат выполнения скрипта: ${comand}`);
             } catch(e) {
                 alert(`Видимо что-то пошло не так ${e}`);
@@ -115,6 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Необходимо заполнить все поля')
         }
     });
+
 
     // square //
 
@@ -127,9 +134,9 @@ document.addEventListener('DOMContentLoaded', () => {
           square_webhookV2key = document.querySelector('.square_webhookV2key');
 
     btn_square.addEventListener('click', () => {
-        if (sandbox_name.value && square_appId.value && square_secret.value && square_sandboxAppID.value && square_sandboxAccessToken.value && square_webhookKey.value && square_webhookV2key.value) {
+        if (sandbox_name_square.value && square_appId.value && square_secret.value && square_sandboxAppID.value && square_sandboxAccessToken.value && square_webhookKey.value && square_webhookV2key.value) {
             try{
-                let comand = childProcess.execSync(`bash bash/square.sh ${sandbox_name.value} ${square_appId.value} ${square_secret.value} ${square_sandboxAppID.value} ${square_sandboxAccessToken.value} ${square_webhookKey.value} ${square_webhookV2key.value}`).toString();
+                let comand = childProcess.execSync(`bash bash/square.sh ${sandbox_name_square.value} ${square_appId.value} ${square_secret.value} ${square_sandboxAppID.value} ${square_sandboxAccessToken.value} ${square_webhookKey.value} ${square_webhookV2key.value}`).toString();
                 alert(`Результат выполнения скрипта: ${comand}`);
             } catch(e) {
                 alert(`Видимо что-то пошло не так ${e}`);
@@ -138,5 +145,4 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Необходимо заполнить все поля')
         }
     });
-
 });
