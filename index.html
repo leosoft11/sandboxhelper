@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="template/style.css">
+    <title>Sandbox Helper</title>
+</head>
+<body>
+    <div class="main">
+        <div class="left">
+            <nav class="link">
+                <li class="link_text active" data-tabs-path="clover">Clover</li>
+                <li class="link_text" data-tabs-path="vend">Vend</li>
+                <li class="link_text" data-tabs-path="weebly">Weebly</li>
+                <li class="link_text" data-tabs-path="imex">imex</li>
+                <li class="link_text" data-tabs-path="square">Square</li>
+            </nav>
+        </div>
+
+        <div class="right">
+            <div class="block block_active" data-tabs-target="clover">
+                <div class="block_clover-info"> 
+                    <img src="img/clover1.png" height="50px">
+                     <div class="row">
+                        <p>Название Sandbox</p>     
+                        <input type="text" class="sandbox_name input">
+                     </div>  
+                      
+                     <div class="row">
+                        <p>Verify key</p>
+                        <input type="text" class="clover_key input">
+                     </div>
+
+                     <div class="row">
+                        <p>Приложение</p>
+                        <select class="clover_select select">
+                                <option></option>
+                                <option>EU</option>
+                                <option>DIRECT_EU</option>
+                                <option>SITE_EU</option>
+                                <option>US</option>
+                                <option>DIRECT_US</option>
+                                <option>SITE_US</option>
+                        </select>
+                     </div>
+                </div>
+                <div class="block_clover-bottom">
+                    <button class="btn_clover btn">Настроить</button>
+                    <button class="btn_getKey btn">Получить ключ</button>
+                </div>    
+            </div>
+
+            <div class="block" data-tabs-target="vend">
+                <div class="block_clover-info"> 
+                    <img src="img/vend.png" height="50px">
+                     <div class="row">
+                        <p>Название Sandbox</p>     
+                        <input type="text" class="sandbox_name input">
+                     </div>  
+                      
+                     <div class="row">
+                        <p>vend.clientId</p>
+                        <input type="text" class=" vend_clientId input">
+                     </div>
+
+                     <div class="row">
+                        <p>vend.clientSecret</p>
+                        <input type="text" class="vend_clientSecret input">
+                     </div>
+                </div>
+                <div class="block_clover-bottom">
+                    <button class="btn_vend btn">Настроить</button>
+                </div>    
+            </div>
+
+            <div class="block" data-tabs-target="weebly">
+                <div class="block_clover-info"> 
+                    <img src="img/weebly.png" height="50px">
+                     <div class="row">
+                        <p>Название Sandbox</p>     
+                        <input type="text" class="sandbox_name input">
+                     </div>  
+                      
+                     <div class="row">
+                        <p>weebly.clientId</p>
+                        <input type="text" class="weebly_clientId input">
+                     </div>
+
+                     <div class="row">
+                        <p>weebly.secretKey</p>
+                        <input type="text" class="weebly_secretKey input">
+                     </div>
+
+                     <div class="row">
+                        <p>App version</p>
+                        <input type="text" class="weeblyAppID input" placeholder="1.0.10">
+                     </div>
+                </div>
+                <div class="block_clover-bottom">
+                    <button class="btn_weebly btn">Настроить</button>
+                </div>    
+            </div>
+
+            <div class="block" data-tabs-target="imex">
+                <div class="block_clover-info"> 
+                    <img src="img/imex.png" height="50px">
+                    <div class="row">
+                        <p>Название Sandbox</p>     
+                        <input type="text" class="sandbox_name input">
+                     </div>  
+                </div>
+                <div class="block_clover-bottom">
+                    <button class="btn_imex btn">Настроить</button>
+                </div>    
+            </div>
+
+            <div class="block" data-tabs-target="square">
+                <div class="block_clover-info"> 
+                    <img src="img/square.png" height="50px">
+                     <div class="row">
+                        <p>Название Sandbox</p>     
+                        <input type="text" class="sandbox_name input">
+                     </div>  
+                      
+                     <div class="row">
+                        <p>app_id</p>
+                        <input type="text" class="square_appId input">
+                     </div>
+                     <div class="row">
+                        <p>app_secret</p>
+                        <input type="text" class="square_secret input">
+                     </div>
+                     <div class="row">
+                        <p>sandbox_app_id</p>
+                        <input type="text" class="square_sandboxAppID input">
+                     </div>
+                     <div class="row">
+                        <p>sandbox_access_token</p>
+                        <input type="text" class="square_sandboxAccessToken input">
+                     </div>
+                     <div class="row">
+                        <p>webhook_key</p>
+                        <input type="text" class="square_webhookKey input">
+                     </div>
+                     <div class="row">
+                        <p>webhook_v2_key</p>
+                        <input type="text" class="square_webhookV2key input">
+                     </div>
+                </div>
+                <div class="block_clover-bottom">
+                    <button class="btn_square btn">Настроить</button>
+                </div>    
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

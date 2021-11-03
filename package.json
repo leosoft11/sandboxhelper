@@ -1,0 +1,19 @@
+{
+  "name": "settingshelper",
+  "version": "0.0.1",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "dist": "electron-builder",
+    "ship": "electron-builder -p always",
+    "ship:all": "electron-builder -mwl --x64 --ia32 -p always"
+  },
+  "author": "lukarek",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^15.0.0",
+    "electron-builder": "^22.13.1"
+  }
+}
