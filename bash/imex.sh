@@ -3,7 +3,7 @@
 #bash editprop.sh 86530v1 node 3 1
   
 SANDBOX=$1
-Prop1="imex.grpc.host=shopkeep-imex-grpc.ecwid.qa"
+Prop1="imex.grpc.host=${SANDBOX}-imex-grpc.ecwid.qa"
 Prop2="imex.grpc.port=443"
 
 
