@@ -30,17 +30,11 @@ document.addEventListener('DOMContentLoaded', () => {
           cloverSetApp = document.querySelector('.clover_select'),
           cloverKey = document.querySelector('.clover_key');
 
-
-    cloverSettingsBtn.disabled = true;
-    cloverSettingsBtn.classList.add('btn_disabled');
-
     cloverGetKey.addEventListener('click', () => {
         if (sandbox_name.value) {
             try {
                 let clover_getKey = childProcess.execSync(`bash bash/cloverKey.sh ${sandbox_name.value}`).toString();
                 alert(`Результат выполнения скрипта: ${clover_getKey}`);
-                cloverSettingsBtn.disabled = false;
-                cloverSettingsBtn.classList.remove('btn_disabled');
             } catch(e){
                 alert(`Видимо что-то пошло не так ${e}`);
             }
