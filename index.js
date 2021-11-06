@@ -1,3 +1,20 @@
+// To do list //
+// Думаю стоит переписать на такую конструкцию: //
+// const { exec } = require('child_process');
+// exec('kubectl -n sandbox-price2 get pod',(error, stdout, stderr) => {
+//     console.log(stdout.length);
+//     if (error) {
+//         console.error(`exec error: ${error}`);
+//         return;
+//     }
+//   const int = setInterval(() => {
+//         if (!stdout.length) {
+//             alert('Пока еще нету данных');
+//        } else {
+//         console.log(`stdout: ${stdout}`);
+//              clearInterval(int);  
+//        }
+//     },500);
 document.addEventListener('DOMContentLoaded', () => {
     const linksTab = document.querySelectorAll('.link_text'),
            blockTab = document.querySelectorAll('.block'),
