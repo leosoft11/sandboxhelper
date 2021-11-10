@@ -77,8 +77,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     let lastEl = Key.slice(-1)[0];
 
                     cloverKey.value = lastEl;
+
+                    cloverKey.select();
+                    document.execCommand("copy");
             
-                    alert(`Key: ${lastEl}`);
+                    alert(`Ваш Ключ: ${lastEl} Сохранен в буфер обмена`);
                 }
             });
          
