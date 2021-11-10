@@ -14,6 +14,9 @@
 //         console.log(`stdout: ${stdout}`);
 //              clearInterval(int);  
 //        }
+
+const { mas } = require('process');
+
 //     },500);
 document.addEventListener('DOMContentLoaded', () => {
     const linksTab = document.querySelectorAll('.link_text'),
@@ -64,10 +67,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     return;
                 }
                 loader.classList.add('block');
-                if (stdout.length >= 1) {
+                if (stdout.length == 1) {
                     alert(`Не нашлось ничего`);
                 } else {
-                    alert(`Key: ${stdout.length}`);
+                    // Тут собираем массив ключей(если их будет много)
+                    let Key  = stdout.replace(/\s+/g, '').split(',').reverse().slice(1).reverse();
+
+                    // Получаем последний найденный ключ 
+                    let lastEl = Key.slice(-1)[0];
+
+                    cloverKey.value = lastEl;
+            
+                    alert(`Key: ${lastEl}`);
                 }
             });
          
