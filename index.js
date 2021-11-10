@@ -180,6 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     btn_weebly_app.addEventListener('click',() => {
+        weeblyAppId.value = '1.0.10';
         const shell = require('electron').shell;
         shell.openExternal("https://lamps.ecwid.com/~lukarek/php/");
     });
