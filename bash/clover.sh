@@ -28,3 +28,4 @@ kubectl -n "sandbox-$SANDBOX" exec -it $POD2 -c "node" kill 1
 kubectl -n "sandbox-$SANDBOX" exec -it $POD3 -c "node" kill 1
 kubectl -n "sandbox-$SANDBOX" exec -it $PROXY -c "proxy" kill 1
 kubectl -n "sandbox-$SANDBOX" exec -it $CLOVER -c "clover" kill 1
+exit

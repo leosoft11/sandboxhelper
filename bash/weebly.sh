@@ -28,3 +28,4 @@ echo "update application set clientid = '${clientId}' where namespace = 'ecwid-w
 
 kubectl -n "sandbox-$SANDBOX" exec -it $WEEBLY -c "weebly" kill 1
 kubectl -n "sandbox-$SANDBOX" exec -it $APPMARKET -c "appmarket" kill 1
+exit

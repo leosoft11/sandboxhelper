@@ -35,3 +35,4 @@ echo "update application set clientid = '${Vend_clientID}',clientsecret = '${Ven
 kubectl -n "sandbox-$SANDBOX" exec -it $POD2 -c "node" kill 1
 kubectl -n "sandbox-$SANDBOX" exec -it $POD3 -c "node" kill 1
 kubectl -n "sandbox-$SANDBOX" exec -it $VEND -c "vend" kill 1
+exit

@@ -22,3 +22,4 @@ APPMARKET=$(kubectl get pod -n "sandbox-$SANDBOX" -l app=appmarket,hive=eu-fra1 
 echo "update square_app set app_id = '${square_appId}', app_secret = '${square_secret}', sandbox_app_id = '${square_sandboxAppID}', sandbox_access_token = '${square_sandboxAccessToken}' , webhook_key = '${square_webhookKey}' , webhook_v2_key = '${square_webhookV2key}' where type = 'CURRENT';" | psql-sand "${SANDBOX}" appmarket
 
 kubectl -n "sandbox-$SANDBOX" exec -it $APPMARKET -c "appmarket" kill 1
+exit

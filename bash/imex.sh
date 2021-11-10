@@ -19,3 +19,4 @@ kubectl -n "sandbox-$SANDBOX" exec -it $POD3 -c "node" -- bash -c 'echo '${Prop2
 
 kubectl -n "sandbox-$SANDBOX" exec -it $POD2 -c "node" kill 1
 kubectl -n "sandbox-$SANDBOX" exec -it $POD3 -c "node" kill 1
+exit
