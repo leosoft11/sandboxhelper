@@ -14,7 +14,7 @@ APPMARKET=$(kubectl get pod -n "sandbox-$SANDBOX" -l "app=appmarket,hive=eu-fra1
 
 
 
-echo "update application set clientid = '${clientId}' where namespace = 'ecwid-weebly-app';" | psql-sand "${SANDBOX}" appmarket
+
 # echo "insert into properties values (0,'clover-hosted-iframe-enabled.stores','all');" | psql-sand "${SANDBOX}" proxy
 
 kubectl -n "sandbox-$SANDBOX" exec -it $WEEBLY -c "weebly" -- bash -c "sed -i  's/\(^weebly.clientId = \).*/\1${clientId}/' /opt/service-conf/weebly.properties"
@@ -23,6 +23,7 @@ kubectl -n "sandbox-$SANDBOX" exec -it $WEEBLY -c "weebly" -- bash -c "sed -i  '
 kubectl -n "sandbox-$SANDBOX" exec -it $WEEBLY -c "weebly" -- bash -c "sed -i  's/\(^weebly.ecwid_api.client = \).*/\1${clientId}/' /opt/service-conf/weebly.properties"
 kubectl -n "sandbox-$SANDBOX" exec -it $WEEBLY -c "weebly" -- bash -c "sed -i  's/\(^weebly.ecwid_api.secret = \).*/\1thisisthelongclientsecret/' /opt/service-conf/weebly.properties"
 
+echo "update application set clientid = '${clientId}' where namespace = 'ecwid-weebly-app';" | psql-sand "${SANDBOX}" appmarket
 
 
 kubectl -n "sandbox-$SANDBOX" exec -it $WEEBLY -c "weebly" kill 1

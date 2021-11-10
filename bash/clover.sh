@@ -14,14 +14,15 @@ PROXY=$(kubectl get pod -n "sandbox-$SANDBOX" -l "app=proxy,hive=eu-fra1" -o jso
 
 
 
-echo "update clover_app set webhook_auth_code='${KEY}' where market='${CloverAPP}';" | psql-sand "${SANDBOX}" clover
-echo "insert into properties values (0,'clover-hosted-iframe-enabled.stores','all');" | psql-sand "${SANDBOX}" proxy
 
 kubectl -n "sandbox-$SANDBOX" exec -it $POD2 -c "node" -- bash -c 'echo "clover.secretKeys = dunnon" >> /opt/service-conf/node.properties'
 kubectl -n "sandbox-$SANDBOX" exec -it $POD2 -c "node" -- bash -c 'echo "clover.httpEndpoints = direct(https://'${SANDBOX}'-clover.ecwid.qa/wsnext)" >> /opt/service-conf/node.properties'
 
 kubectl -n "sandbox-$SANDBOX" exec -it $POD3 -c "node" -- bash -c 'echo "clover.secretKeys = dunnon" >> /opt/service-conf/node.properties'
 kubectl -n "sandbox-$SANDBOX" exec -it $POD3 -c "node" -- bash -c 'echo "clover.httpEndpoints = direct(https://'${SANDBOX}'-clover.ecwid.qa/wsnext)" >> /opt/service-conf/node.properties'
+
+echo "update clover_app set webhook_auth_code='${KEY}' where market='${CloverAPP}';" | psql-sand "${SANDBOX}" clover
+echo "insert into properties values (0,'clover-hosted-iframe-enabled.stores','all');" | psql-sand "${SANDBOX}" proxy
 
 kubectl -n "sandbox-$SANDBOX" exec -it $POD2 -c "node" kill 1
 kubectl -n "sandbox-$SANDBOX" exec -it $POD3 -c "node" kill 1
