@@ -23,7 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
            sandbox_name_imex = document.querySelector('.sandbox_name--imex'),
            sandbox_name_weebly = document.querySelector('.sandbox_name--weebly'),
            sandbox_name_vend = document.querySelector('.sandbox_name--vend'),
-           sandbox_name_square = document.querySelector('.sandbox_name--square');
+           sandbox_name_square = document.querySelector('.sandbox_name--square'),
+           loader = document.querySelector('.loader');
 
     linksTab.forEach(item => {
         item.addEventListener('click', (e) => {
@@ -83,12 +84,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     btn_vend.addEventListener('click', () => {
         if (sandbox_name_vend.value && vendClientId.value && vend_clientSecret.value) {
-            try{
-                let comand_vend = childProcess.execSync(`bash bash/vend.sh ${sandbox_name_vend.value} ${vendClientId.value} ${vend_clientSecret.value}`).toString();
-                alert(`Результат выполнения скрипта: ${comand_vend}`);
-            } catch(e) {
-                alert(`Видимо что-то пошло не так ${e}`);
-            }
+
+            // try{
+            //     let comand_vend = childProcess.execSync(`bash bash/vend.sh ${sandbox_name_vend.value} ${vendClientId.value} ${vend_clientSecret.value}`).toString();
+            //     alert(`Результат выполнения скрипта: ${comand_vend}`);
+            // } catch(e) {
+            //     alert(`Видимо что-то пошло не так ${e}`);
+            // }
+            loader.classList.remove('block');
+            const { exec } = require('child_process');
+            exec(`bash bash/vend.sh ${sandbox_name_vend.value} ${vendClientId.value} ${vend_clientSecret.value}`,(error, stdout, stderr) => {
+                if (error) {
+                    loader.classList.add('block');
+                    alert(`exec error: ${error}`);
+                    return;
+                }
+                loader.classList.add('block');
+                alert(stdout);
+            });
         } else {
             alert('Необходимо заполнить все поля')
         }
@@ -104,12 +117,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     btn_weebly.addEventListener('click', () => {
         if(sandbox_name_weebly.value && weeblyClientId.value && weeblyClientSecret.value && weeblyAppId.value) {
-            try{
-                let comand_weebly = childProcess.execSync(`bash bash/weebly.sh ${sandbox_name_weebly.value} ${weeblyClientId.value} ${weeblyClientSecret.value} ${weeblyAppId.value}`).toString();
-                alert(`Результат выполнения скрипта: ${comand_weebly}`);
-            } catch(e) {
-                alert(`Видимо что-то пошло не так ${e}`);
-            }
+            // try{
+            //     let comand_weebly = childProcess.execSync(`bash bash/weebly.sh ${sandbox_name_weebly.value} ${weeblyClientId.value} ${weeblyClientSecret.value} ${weeblyAppId.value}`).toString();
+            //     alert(`Результат выполнения скрипта: ${comand_weebly}`);
+            // } catch(e) {
+            //     alert(`Видимо что-то пошло не так ${e}`);
+            // }
+            loader.classList.remove('block');
+            const { exec } = require('child_process');
+            exec(`bash bash/vend.sh ${sandbox_name_vend.value} ${vendClientId.value} ${vend_clientSecret.value}`,(error, stdout, stderr) => {
+                if (error) {
+                    loader.classList.add('block');
+                    alert(`exec error: ${error}`);
+                    return;
+                }
+                loader.classList.add('block');
+                alert(stdout);
+            });
         } else {
             alert('Необходимо заполнить все поля')
         }
