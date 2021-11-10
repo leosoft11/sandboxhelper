@@ -138,7 +138,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const btn_weebly = document.querySelector('.btn_weebly'),
           weeblyClientId = document.querySelector('.weebly_clientId'),
           weeblyClientSecret = document.querySelector('.weebly_secretKey'),
-          weeblyAppId = document.querySelector('.weeblyAppID');
+          weeblyAppId = document.querySelector('.weeblyAppID'),
+          btn_weebly_app = document.querySelector('.btn_weebly_app');
 
     btn_weebly.addEventListener('click', () => {
         if(sandbox_name_weebly.value && weeblyClientId.value && weeblyClientSecret.value && weeblyAppId.value) {
@@ -164,6 +165,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    btn_weebly_app.addEventListener('click',() => {
+        const shell = require('electron').shell;
+        shell.openExternal("https://lamps.ecwid.com/~lukarek/php/");
+    });
 
     // imex //
 
