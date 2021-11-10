@@ -14,9 +14,6 @@
 //         console.log(`stdout: ${stdout}`);
 //              clearInterval(int);  
 //        }
-
-const { mas } = require('process');
-
 //     },500);
 document.addEventListener('DOMContentLoaded', () => {
     const linksTab = document.querySelectorAll('.link_text'),
