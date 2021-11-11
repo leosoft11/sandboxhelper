@@ -102,7 +102,23 @@ document.addEventListener('DOMContentLoaded', () => {
             const childProcess = require('child_process');
             const exec_proc = (coommand) => {
                     const s_process = childProcess.exec(coommand);
+
+                    s_process.stderr.on('data', (data) => {
+                        const err  = [];
+                        err.push(data);
+                     
+                        // console.log(err[0]);
+                        console.log(err);
+                        // if (err[0].indexOf('Error from server (NotFound): namespaces')){
+                            
+                        // } else {
+                        //     alert('Ошибки нету');
+                        // }
+
+                });
+                    
                     s_process.stdout.on('close', (code) => {
+                        
                         console.log(code);
                         loader.classList.add('block');
                         alert(`Ошибок не было, значит сэндбоксы почти настроены, осталось подождать запуска контейнеров на площадке`);
