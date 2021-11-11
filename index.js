@@ -72,30 +72,10 @@ document.addEventListener('DOMContentLoaded', () => {
        if (sandbox_name.value && cloverKey.value && cloverSetApp.value) {
       
         loader.classList.remove('block');
-        // const { exec } = require('child_process');
-        // exec(`bash bash/clover.sh ${sandbox_name.value} ${cloverKey.value} ${cloverSetApp.value}`,(error, stdout, stderr) => {
-        //     if (error) {
-        //         loader.classList.add('block');
-        //         alert(`exec error: ${error}`);
-        //         return;
-        //     }
-        //     loader.classList.add('block');
-        //     console.log(stderr);
-        //     alert(`Ошибок не было, значит сэндбоксы почти настроены, осталось подождать запуска контейнеров на площадке ${stdout}`);
-        // });
 
         const childProcess = require('child_process');
                 const exec_proc = (coommand) => {
-                    const s_process = childProcess.exec(coommand);
-                    // s_process.stdout.on('data', (data) => {
-                    //     console.log(data);
-                    //     loader.classList.add('block');
-                    // });
-
-                    // s_process.stderr.on('data',(data) => {
-                    //         loader.classList.add('block');
-                    //         console.log(`error: ${data}`);
-                    // });
+                const s_process = childProcess.exec(coommand);
                     s_process.stdout.on('close', (code) => {
                         console.log(code);
                         loader.classList.add('block');
@@ -103,8 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     })
             }
             exec_proc(`bash bash/clover.sh ${sandbox_name.value} ${cloverKey.value} ${cloverSetApp.value}`);
-
-
        } else {
            alert("Необходимо заполнить все поля");
        }
@@ -121,30 +99,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (sandbox_name_vend.value && vendClientId.value && vend_clientSecret.value) {
 
             loader.classList.remove('block');
-            // const { exec } = require('child_process');
-            // exec(`bash bash/vend.sh ${sandbox_name_vend.value} ${vendClientId.value} ${vend_clientSecret.value}`,(error, stdout, stderr) => {
-            //     if (error) {
-            //         loader.classList.add('block');
-            //         alert(`exec error: ${error}`);
-            //         return;
-            //     }
-            //     loader.classList.add('block');
-            //     console.log(stderr);
-            //     alert(`Ошибок не было, значит сэндбоксы почти настроены, осталось подождать запуска контейнеров на площадке ${stdout}`);
-                
-            // });
             const childProcess = require('child_process');
-                const exec_proc = (coommand) => {
+            const exec_proc = (coommand) => {
                     const s_process = childProcess.exec(coommand);
-                    // s_process.stdout.on('data', (data) => {
-                    //     console.log(data);
-                    //     loader.classList.add('block');
-                    // });
-
-                    // s_process.stderr.on('data',(data) => {
-                    //         loader.classList.add('block');
-                    //         console.log(`error: ${data}`);
-                    // });
                     s_process.stdout.on('close', (code) => {
                         console.log(code);
                         loader.classList.add('block');
@@ -156,7 +113,6 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Необходимо заполнить все поля')
         }
     });
-
 
     // Weebly //
 
@@ -170,30 +126,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if(sandbox_name_weebly.value && weeblyClientId.value && weeblyClientSecret.value && weeblyAppId.value) {
       
             loader.classList.remove('block');
-            // const { exec } = require('child_process');
-            // exec(`bash bash/vend.sh ${sandbox_name_vend.value} ${vendClientId.value} ${vend_clientSecret.value}`,(error, stdout, stderr) => {
-            //     if (error) {
-            //         loader.classList.add('block');
-            //         alert(`exec error: ${error}`);
-            //         return;
-            //     }
-            //     loader.classList.add('block');
-            //     console.log(stderr);
-            //     alert(`Ошибок не было, значит сэндбоксы почти настроены, осталось подождать запуска контейнеров на площадке ${stdout}`);
-            // });
-
             const childProcess = require('child_process');
             const exec_proc = (coommand) => {
-                const s_process = childProcess.exec(coommand);
-                // s_process.stdout.on('data', (data) => {
-                //     console.log(data);
-                //     loader.classList.add('block');
-                // });
-
-                // s_process.stderr.on('data',(data) => {
-                //         loader.classList.add('block');
-                //         console.log(`error: ${data}`);
-                // });
+            const s_process = childProcess.exec(coommand);
                 s_process.stdout.on('close', (code) => {
                     console.log(code);
                     loader.classList.add('block');
