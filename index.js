@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
             loader.classList.remove('block');
             const { exec } = require('child_process');
-            exec(`bash bash/vend.sh ${sandbox_name_vend.value} ${vendClientId.value} ${vend_clientSecret.value}`,(error, stdout, stderr) => {
+            exec(`bash bash/weebly.sh ${sandbox_name_weebly.value} ${weeblyClientId.value} ${weeblyClientSecret.value} ${weeblyAppId.value}`,(error, stdout, stderr) => {
                 if (error) {
                     loader.classList.add('block');
                     alert(`exec error: ${error}`);
