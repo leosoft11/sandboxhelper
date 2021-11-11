@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     loader.classList.add('block');
                     alert(`Ошибок не было, значит сэндбоксы почти настроены, осталось подождать запуска контейнеров на площадке`);
                 })
-        }
+         }
         exec_proc(`bash bash/weebly.sh ${sandbox_name_weebly.value} ${weeblyClientId.value} ${weeblyClientSecret.value} ${weeblyAppId.value}`);
             
 
@@ -155,19 +155,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     btn_imex.addEventListener('click', () => {
         if (sandbox_name_imex.value) {
-          
+
             loader.classList.remove('block');
-            const { exec } = require('child_process');
-            exec(`bash bash/imex.sh ${sandbox_name_imex.value}`,(error, stdout, stderr) => {
-                if (error) {
-                    loader.classList.add('block');
-                    alert(`exec error: ${error}`);
-                    return;
-                }
-                loader.classList.add('block');
-                console.log(stderr);
-                alert(`Ошибок не было, значит сэндбоксы почти настроены, осталось подождать запуска контейнеров на площадке ${stdout}`);
-            });
+            const childProcess = require('child_process');
+            const exec_proc = (coommand) => {
+                    const s_process = childProcess.exec(coommand);
+                    s_process.stdout.on('close', (code) => {
+                        console.log(code);
+                        loader.classList.add('block');
+                        alert(`Ошибок не было, значит сэндбоксы почти настроены, осталось подождать запуска контейнеров на площадке`);
+                    })
+            }
+            exec_proc(`bash bash/imex.sh ${sandbox_name_imex.value}`);
             
         } else {
             alert('Необходимо заполнить все поля')
@@ -187,19 +186,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     btn_square.addEventListener('click', () => {
         if (sandbox_name_square.value && square_appId.value && square_secret.value && square_sandboxAppID.value && square_sandboxAccessToken.value && square_webhookKey.value && square_webhookV2key.value) {
-         
+
             loader.classList.remove('block');
-            const { exec } = require('child_process');
-            exec(`bash bash/square.sh ${sandbox_name_square.value} ${square_appId.value} ${square_secret.value} ${square_sandboxAppID.value} ${square_sandboxAccessToken.value} ${square_webhookKey.value} ${square_webhookV2key.value}`,(error, stdout, stderr) => {
-                if (error) {
-                    loader.classList.add('block');
-                    alert(`exec error: ${error}`);
-                    return;
-                }
-                loader.classList.add('block');
-                console.log(stderr);
-                alert(`Ошибок не было, значит сэндбоксы почти настроены, осталось подождать запуска контейнеров на площадке ${stdout}`);
-            });
+            const childProcess = require('child_process');
+            const exec_proc = (coommand) => {
+                    const s_process = childProcess.exec(coommand);
+                    s_process.stdout.on('close', (code) => {
+                        console.log(code);
+                        loader.classList.add('block');
+                        alert(`Ошибок не было, значит сэндбоксы почти настроены, осталось подождать запуска контейнеров на площадке`);
+                    })
+            }
+            exec_proc(`bash bash/square.sh ${sandbox_name_square.value} ${square_appId.value} ${square_secret.value} ${square_sandboxAppID.value} ${square_sandboxAccessToken.value} ${square_webhookKey.value} ${square_webhookV2key.value}`);
+
         } else{
             alert('Необходимо заполнить все поля')
         }
