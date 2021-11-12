@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
            sandbox_name_weebly = document.querySelector('.sandbox_name--weebly'),
            sandbox_name_vend = document.querySelector('.sandbox_name--vend'),
            sandbox_name_square = document.querySelector('.sandbox_name--square'),
-           loader = document.querySelector('.loader');
+           loader = document.querySelector('.loader'),
+           info = 'Ошибок не было, значит сэндбокс почти настроен, осталось подождать запуска контейнеров на площадке';
 
     linksTab.forEach(item => {
         item.addEventListener('click', (e) => {
@@ -79,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     s_process.stdout.on('close', (code) => {
                         console.log(code);
                         loader.classList.add('block');
-                        alert(`Ошибок не было, значит сэндбоксы почти настроены, осталось подождать запуска контейнеров на площадке`);
+                        alert(`${info}`);
                     })
             }
             exec_proc(`bash bash/clover.sh ${sandbox_name.value} ${cloverKey.value} ${cloverSetApp.value}`);
@@ -105,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     s_process.stdout.on('close', (code) => {
                         console.log(code);
                         loader.classList.add('block');
-                        alert(`Ошибок не было, значит сэндбоксы почти настроены, осталось подождать запуска контейнеров на площадке`);
+                        alert(`${info}`);
                     })
             }
             exec_proc(`bash bash/vend.sh ${sandbox_name_vend.value} ${vendClientId.value} ${vend_clientSecret.value}`);
@@ -122,6 +123,8 @@ document.addEventListener('DOMContentLoaded', () => {
           weeblyAppId = document.querySelector('.weeblyAppID'),
           btn_weebly_app = document.querySelector('.btn_weebly_app');
 
+          weeblyAppId.value = '1.0.10';
+
     btn_weebly.addEventListener('click', () => {
         if(sandbox_name_weebly.value && weeblyClientId.value && weeblyClientSecret.value && weeblyAppId.value) {
       
@@ -134,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     console.log(code);
 
                     loader.classList.add('block');
-                    alert(`Ошибок не было, значит сэндбоксы почти настроены, осталось подождать запуска контейнеров на площадке`);
+                    alert(`${info}`);
                 })
          }
         exec_proc(`bash bash/weebly.sh ${sandbox_name_weebly.value} ${weeblyClientId.value} ${weeblyClientSecret.value} ${weeblyAppId.value}`);
@@ -146,7 +149,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     btn_weebly_app.addEventListener('click',() => {
-        weeblyAppId.value = '1.0.10';
         const shell = require('electron').shell;
         shell.openExternal("https://lamps.ecwid.com/~lukarek/php/");
     });
@@ -165,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     s_process.stdout.on('close', (code) => {
                         console.log(code);
                         loader.classList.add('block');
-                        alert(`Ошибок не было, значит сэндбоксы почти настроены, осталось подождать запуска контейнеров на площадке`);
+                        alert(`${info}`);
                     })
             }
             exec_proc(`bash bash/imex.sh ${sandbox_name_imex.value}`);
@@ -196,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     s_process.stdout.on('close', (code) => {
                         console.log(code);
                         loader.classList.add('block');
-                        alert(`Ошибок не было, значит сэндбоксы почти настроены, осталось подождать запуска контейнеров на площадке`);
+                        alert(`${info}`);
                     })
             }
             exec_proc(`bash bash/square.sh ${sandbox_name_square.value} ${square_appId.value} ${square_secret.value} ${square_sandboxAppID.value} ${square_sandboxAccessToken.value} ${square_webhookKey.value} ${square_webhookV2key.value}`);
