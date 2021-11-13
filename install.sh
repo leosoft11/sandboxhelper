@@ -10,10 +10,10 @@ touch ${App_name}
 
 chmod +x ${App_name}
 
-keks=$(pwd)
+path=$(pwd)
 
-echo "cd ${keks}" >> ${App_name}
+echo "cd ${path}" >> ${App_name}
 echo "npm run start" >> ${App_name}
 
-echo "Done"
+echo "Все настройки завершены, теперь для запуска приложения достаточно кликнуть на файл ${App_name}"
 
