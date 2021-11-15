@@ -30,7 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const cloverSettingsBtn = document.querySelector('.btn_clover'),
           cloverGetKey = document.querySelector('.btn_getKey'),
           cloverSetApp = document.querySelector('.clover_select'),
-          cloverKey = document.querySelector('.clover_key');
+          cloverKey = document.querySelector('.clover_key'),
+          clover_key_copy = document.querySelector('.clover_keyCopy');
 
     cloverGetKey.addEventListener('click', () => {
         if (sandbox_name.value) {
@@ -53,9 +54,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Получаем последний найденный ключ 
                     let lastEl = Key.slice(-1)[0];
 
-                    cloverKey.value = lastEl;
+                    clover_key_copy.value = lastEl;
 
-                    cloverKey.select();
+                    clover_key_copy.select();
                     document.execCommand("copy");
 
                     console.log(stderr);
