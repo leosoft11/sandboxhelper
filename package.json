@@ -10,6 +10,11 @@
     "ship": "electron-builder -p always",
     "ship:all": "electron-builder -mwl --x64 --ia32 -p always"
   },
+  "build": {
+    "extraResources": [
+      "./extraResources/**"
+    ]
+  },
   "author": "lukarek",
   "license": "ISC",
   "devDependencies": {

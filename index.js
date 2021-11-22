@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
            loader = document.querySelector('.loader'),
            info = 'Ошибок не было, значит сэндбокс почти настроен, осталось подождать запуска контейнеров на площадке';
 
+    const path = require('path');
+
     linksTab.forEach(item => {
         item.addEventListener('click', (e) => {
             const tabsPath = e.target.dataset.tabsPath;
@@ -165,13 +167,22 @@ document.addEventListener('DOMContentLoaded', () => {
             const childProcess = require('child_process');
             const exec_proc = (coommand) => {
                     const s_process = childProcess.exec(coommand);
+
+                    s_process.stderr.on('data', (data) =>  {
+                        console.log(data);
+                    });
+
                     s_process.stdout.on('close', (code) => {
                         console.log(code);
                         loader.classList.add('block');
                         alert(`${info}`);
                     })
             }
-            exec_proc(`bash bash/imex.sh ${sandbox_name_imex.value}`);
+
+            let fixedURL = path.join(process.resourcesPath, '/extraResources/');
+
+            console.log(fixedURL);
+            exec_proc(`bash ${fixedURL}imex.sh ${sandbox_name_imex.value}`);
             
         } else {
             alert('Необходимо заполнить все поля')
