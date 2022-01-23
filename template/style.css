@@ -134,3 +134,15 @@
   left: 0;
   opacity: 0.9;
 }
+
+.row_list {
+  min-width: 350px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.row_list label {
+  margin-right: auto;
+  margin-top: 2px;
+}

@@ -17,6 +17,7 @@
                 <li class="link_text" data-tabs-path="weebly">Weebly</li>
                 <li class="link_text" data-tabs-path="imex">imex</li>
                 <li class="link_text" data-tabs-path="square">Square</li>
+                <li class="link_text" data-tabs-path="sandbox">Add a service on Sandbox</li>                
             </nav>
         </div>
 
@@ -156,8 +157,38 @@
                     <button class="btn_square btn">Настроить</button>
                 </div>    
             </div>
+
+            <div class="block" data-tabs-target="sandbox">
+                <div class="block_clover-info sandbox_list">
+                    <img src="img/sandy.png" height="50px">
+                    <div class="row">
+                        <p>Название Sandbox</p>     
+                        <input type="text" class="sandbox_get input">
+                     </div>  
+
+                     <div class="row">
+                        <p>Хэш</p>     
+                        <input type="text"class="sandbox_postHash input">  
+                     </div>  
+                     <div class="row">
+                        <p style="font-weight: 700;">Необходимо оставить поле пустым, для использования дефолтного хэша, при добавлении нового сервиса.</p>     
+                     </div> 
+
+                    <div class="row">
+                        <p class="sandbox_name_services">Список отсутствующих сервисов на площадке:</p>
+                     </div> 
+                     <div class="row_list">
+
+                     </div>                
+                </div>
+                <div class="block_clover-bottom">
+                    <button class="btn_sandboxGet btn">Получить список</button>
+                    <button class="btn_sandboxPost btn">Добавить сервис на площадку</button>
+                </div>    
+            </div>
         </div>
     </div>
     <script src="index.js"></script>
+    <script src="../replyservices/test.js"></script>
 </body>
 </html>
