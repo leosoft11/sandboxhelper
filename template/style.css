@@ -146,3 +146,11 @@
   margin-right: auto;
   margin-top: 2px;
 }
+
+.popup_services--active {
+  position: absolute;
+  background-color: #333;
+  height: 100%;
+  width: 100%;
+  opacity: 0.9;
+}

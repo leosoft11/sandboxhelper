@@ -9,6 +9,7 @@
 </head>
 <body>
     <div class="loader block"></div>
+    <div class="popup_services"></div>
     <div class="main">
         <div class="left">
             <nav class="link">
@@ -17,7 +18,8 @@
                 <li class="link_text" data-tabs-path="weebly">Weebly</li>
                 <li class="link_text" data-tabs-path="imex">imex</li>
                 <li class="link_text" data-tabs-path="square">Square</li>
-                <li class="link_text" data-tabs-path="sandbox">Add a service on Sandbox</li>                
+                <li class="link_text" data-tabs-path="sandbox">Add a service on Sandbox</li>
+                <li class="link_text" data-tabs-path="delete_sandbox">Delete a service on Sandbox</li>                 
             </nav>
         </div>
 
@@ -184,6 +186,26 @@
                 <div class="block_clover-bottom">
                     <button class="btn_sandboxGet btn">Получить список</button>
                     <button class="btn_sandboxPost btn">Добавить сервис на площадку</button>
+                </div>    
+            </div>
+
+            <div class="block" data-tabs-target="delete_sandbox">
+                <div class="block_clover-info sandbox_list">
+                    <img src="img/sandy.png" height="50px">
+                    <div class="row">
+                        <p>Название Sandbox</p>     
+                        <input type="text" class="sandbox_get input">
+                     </div>  
+                    <div class="row">
+                        <p class="sandbox_name_services">Список отсутствующих сервисов на площадке:</p>
+                     </div> 
+                     <div class="row_list">
+
+                     </div>                
+                </div>
+                <div class="block_clover-bottom">
+                    <button class="btn_sandboxGet btn">Получить список</button>
+                    <button class="btn_sandboxPost btn">Удалить выбранные сервисы</button>
                 </div>    
             </div>
         </div>
