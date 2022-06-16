@@ -18,8 +18,9 @@
                 <li class="link_text" data-tabs-path="weebly">Weebly</li>
                 <li class="link_text" data-tabs-path="imex">imex</li>
                 <li class="link_text" data-tabs-path="square">Square</li>
-                <li class="link_text" data-tabs-path="sandbox">Add a service on Sandbox</li>
-                <li class="link_text" data-tabs-path="delete_sandbox">Delete a service on Sandbox</li>                 
+                <li class="link_text" data-tabs-path="sandbox">Add Services</li>
+                <li class="link_text" data-tabs-path="delete_sandbox">Delete services</li>
+                <li class="link_text" data-tabs-path="switch_sandbox">Switch Services</li>                   
             </nav>
         </div>
         
@@ -187,8 +188,14 @@
                 <div class="block_clover-bottom">
                     <button class="btn_sandboxGet btn">Получить список</button>
                     <button class="btn_sandboxPost btn">Добавить сервис на площадку</button>
+                </div>
+                <div class="popup_alert block">
+                    <p>Выбранные сервисы успешно добавлены на площадку, необходимо время для запуска билдов :)</p>
+                    <button class="btn btnGetBuildTeamCity">Посмотреть билды на TeamCity</button>
+                    <button class="btn btnGetBuildClose">Закрыть окно</button>
                 </div>    
             </div>
+          
 
             <div class="block" data-tabs-target="delete_sandbox">
                 <div class="block_clover-info sandbox_list">
@@ -208,6 +215,19 @@
                     <button class="btn_sandboxGet btn">Получить список</button>
                     <button class="btn_sandboxPost btn">Удалить выбранные сервисы</button>
                 </div>    
+            </div>
+
+            <div class="block" data-tabs-target="switch_sandbox">
+                <div class="block_clover-info sandbox_list">
+                    <img src="img/sandy.png" height="50px">
+                    <div class="row">
+                        <p>Корявый аналог переката сервисов</p>     
+                     </div>  
+                      
+                </div>
+                <div class="block_clover-bottom">
+                    <button class="btn_roll btn">Открыть тулзу</button>
+                </div>   
             </div>
         </div>
     </div>

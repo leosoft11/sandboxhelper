@@ -1,3 +1,4 @@
+const path = require('path');
 
 document.addEventListener('DOMContentLoaded', () => {
     const linksTab = document.querySelectorAll('.link_text'),
@@ -208,4 +209,12 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Необходимо заполнить все поля')
         }
     });
+
+
+    // Открываем новое окошко
+     const btn_roll = document.querySelector('.btn_roll');
+
+     btn_roll.addEventListener('click', () => {
+         window.open(`index_services.html`);
+     });
 });

@@ -8,7 +8,7 @@ const createWindow = () => {
             nodeIntegration: true,
             contextIsolation: false,
             enableRemoteModule: true
-        }
+        },
     })
     win.loadFile('index.html');
 }
